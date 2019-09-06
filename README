@@ -1,6 +1,9 @@
 Author: Keith Hendley
 Date: 9/3/19
 
+Shared library that replaces malloc(), free(), calloc(), and realloc(). Places memory allocations 
+in size and time buckets which are printed periodically to console. 
+
 Linux Distribution: Ubuntu 18.04 LTS
 
 Submission complete - used build_and_install.sh instead of Make files.

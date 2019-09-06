@@ -1,0 +1,34 @@
+Author: Keith Hendley
+Date: 9/3/19
+
+Linux Distribution: Ubuntu 18.04 LTS
+
+Submission complete - used build_and_install.sh instead of Make files.
+
+Build Instructions: build_and_install.sh
+
+
+
+Design:
+shared_client.so makes use of System V message Queues to send allocation/free
+  events to stat_server.
+
+shared_client makes use of System V shared memory to implement a spin lock using atomic
+  instructions. stat_server initializes spin lock which means it needs to be started
+  first.
+
+Files:
+1. shared_client.c // shared library 
+2. test.cpp 	   // test app
+3. stat_server.cpp // statistics server
+4. stat_server.h   // used by stat_server.cpp and shared_client
+
+Files after building:
+1. libshared_client.so
+2. test
+3. stat_server
+
+Testing using LD_PRELOAD:
+1. test which tests multi-threaded and recursion
+2. 'find' with over 21,000 jpg files
+
